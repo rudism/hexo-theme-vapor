@@ -1,0 +1,32 @@
+extends default
+
+block window_title
+  = page.title
+
+block body
+  article
+    header
+      if page.tags.length > 0
+        .post-meta.tags Posted in 
+          - var tags = [];
+          - page.tags.sort('name').each(function(tag){
+          -   tags.push('<a href="' + config.root + config.tag_dir + '/' + tag.slug + '">' + tag.name.replace(/-/g, ' ') + '</a>');
+          - });
+          != tags.join(', ')
+      h1= page.title
+      .post-meta: time(datetime=page.date.format('YYYY-MM-DD')) #{ page.date.format("dddd, MMMM DD, YYYY") }
+
+    section.post-content
+      != page.content
+
+      if page.shorturl
+        section.share
+          p: small Story perma-link for attribution: 
+            a(href=page.shorturl)= page.shorturl
+
+    footer.post-footer
+      section.author
+        .authorimage(style='background: url(' + config.root + 'assets/avatar.jpg)')
+        p.attr Author
+        h4: a(href=config.root + 'contact') Rudis Muiznieks
+        p.bio #{ theme.bio }

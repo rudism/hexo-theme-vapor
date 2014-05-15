@@ -1,0 +1,29 @@
+extend default
+
+block body
+
+  if page.tag
+    header
+      .post-meta.tags #{ page.tag.replace(/-/g, ' ') }
+
+  main.content(role='main')
+    - page.posts.each(function(post){
+      article.preview
+        header
+          h1.post-title: a(href=config.root + post.path)= post.title
+        section.post-excerpt
+          p #{ strip_html(post.excerpt) }&hellip;
+          p.readmore: a(href=config.root + post.path) Read this story 
+            i.fa.fa-chevron-circle-right
+    - })
+
+  nav.pagination(role='pagination')
+    if page.prev
+      a.newer-posts(href=config.root + page.prev_link)
+        i.fa.fa-chevron-circle-left 
+        = ' Newer'
+    span.page-number Page #{ page.current } of #{ page.total }
+    if page.next
+      a.older-posts(href=config.root + page.next_link)
+        = 'Older '
+        i.fa.fa-chevron-circle-right 

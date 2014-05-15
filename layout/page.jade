@@ -1,0 +1,12 @@
+extends default
+
+block window_title
+  = page.title
+
+block body
+  article
+    header
+      h1= page.title
+
+    section.post-content
+      != page.content

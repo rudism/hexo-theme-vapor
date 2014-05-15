@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html', charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+    title
+      block window_title
+        = page.tag ? config.title + ' - ' + page.tag.replace(/-/g, ' ').replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : config.title
+
+    meta(name='description', content=config.description)
+
+    meta(name='HandheldFriendly', content='True')
+    meta(name='MobileOptimized', content='320')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+
+    link(rel='shortcut icon', href=config.root + 'assets/favicon.png')
+    != css(config.root + 'assets/normalize.css')
+    != css(config.root + 'assets/screen.css')
+    != css(config.root + 'assets/embeds.css')
+  body
+    header#site-head
+      a#blog-logo(href=config.root)
+        .bloglogo(style='background: url(' + config.root + 'assets/logo.png')
+      h1.blog-title
+        a(href=config.root)= config.title
+      h2.blog-description= config.subtitle
+
+    block body
+
+    footer.site-footer
+      .inner
+        section.copyright &copy; #{ date(Date.now(), 'YYYY') } 
+          a(href=config.root + 'contact') Rudis Muiznieks
+          = '. '
+          a(href='http://creativecommons.org/licenses/by/4.0/deed.en_US') Some rights reserved
+          = '.'
+        section: small Design based on Vapor by 
+          a(href='http://sethlilly.com/') Seth Lilly
+          = '. Powered by '
+          a(href='http://hexo.io/') Hexo
+          = '.'
+
+    if theme.piwikhost
+      script.
+        var _paq = _paq || [];
+        _paq.push(["trackPageView"]);
+        _paq.push(["enableLinkTracking"]);
+
+        (function() {
+          var u=(("https:" == document.location.protocol) ? "https" : "http") + "://#{ theme.piwikhost }/";
+          _paq.push(["setTrackerUrl", u+"piwik.php"]);
+          _paq.push(["setSiteId", "#{ theme.piwikid }"]);
+          var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+          g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+        })();
