@@ -32,7 +32,7 @@ html(lang='en')
     footer.site-footer
       .inner
         section.copyright &copy; #{ date(Date.now(), 'YYYY') } 
-          a(href=config.root + 'contact') Rudis Muiznieks
+          a(href=config.root + 'contact') #{ config.author }
           = '. '
           a(href='http://creativecommons.org/licenses/by/4.0/deed.en_US') Some rights reserved
           = '.'
