@@ -2,3 +2,5 @@ bio: Author Bio
 piwikhost: leave.blank.for.no.piwik.com
 piwikid: 1
 readmore: Read This Article
+issohost: comments.yourblog.com
+issoname: probablyleaveblank

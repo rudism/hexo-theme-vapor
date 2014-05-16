@@ -183,7 +183,6 @@ section.share {
     margin-top: 1em;
     border-top: 1px solid @borderColor;
     padding-top: 1em;
-    text-align: right;
 }
 
     section.author h4, section.author p, section.share p {
@@ -564,6 +563,30 @@ table {
     tfoot {
         border-top: 1px solid @borderColor;
     }
+}
+
+/* isso comments overrides */
+
+#isso-thread {
+    border-top: 1px solid @borderColor;
+}
+
+#isso-thread .postbox > .form-wrapper > .auth-section .post-action > input {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#isso-thread > h4 {
+    font-family: @secondaryFontFamily !important;
+    font-size: 16px !important;
+    color: @baseFontColor !important;
+    font-weight: 100 !important;
+    text-transform: uppercase;
+}
+
+#isso-thread .isso-comment > div.text-wrapper > .isso-comment-footer a:hover {
+    color: @linkColorHover !important;
+    text-shadow: none !important;
 }
 
 /* === Media Queries === */
