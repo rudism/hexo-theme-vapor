@@ -31,6 +31,6 @@ block body
         h4: a(href=config.root + 'contact') #{ config.author }
         p.bio #{ theme.bio }
 
-    if page.comments
-      script(data-isso='http://' + theme.issohost + '/' + theme.issoname, data-isso-reply-to-self='false', src='http://' + theme.issohost + '/' + theme.issoname + 'js/embed.min.js')
-      section#isso-thread
+  if page.comments
+    script(data-isso='http://' + theme.issohost + '/' + theme.issoname, data-isso-reply-to-self='false', src='http://' + theme.issohost + '/' + theme.issoname + 'js/embed.min.js')
+    section#isso-thread
