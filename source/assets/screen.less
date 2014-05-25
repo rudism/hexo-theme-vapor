@@ -107,6 +107,13 @@ h1 {
     padding: 0;
 }
 
+hr {
+  color: transparent;
+  margin: 20px auto;
+  width: 20%;
+  border-bottom: 4px dotted @borderColor;
+}
+
 #site-head, article, article.preview, a.archive-link, .article-nav {
     margin: 20px auto 0 auto;
     max-width: @maxPageWidth;
@@ -507,30 +514,8 @@ a.archive-link {
     font-style: normal;
 }
 
-.icon-ghost, .icon-feed {
-    font-family: 'icons';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    text-decoration: none;
-}
-
-.icon-ghost:before {
-    content: "\e000"
-}
-
 .icon-feed:before {
     content: "\e001"
-}
-
-.icon-ghost {
-    font-size: 12px;
-    position: relative;
-    top: -1px;
 }
 
 /* Comments */
